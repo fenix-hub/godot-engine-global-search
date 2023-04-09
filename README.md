@@ -1,6 +1,6 @@
 # Godot Engine Global Search
 
-<p align="center" dir="auto">![demo](https://imgur.com/adlDB4X.gif)</p>
+<p align="center" dir="auto"><img src="https://imgur.com/adlDB4X.gif" alt="demo"/></p>
 
 
 A proof of concept Global Search Node with search-as-you-type functionality, powered by [Typesense](https://github.com/typesense/typesense).  

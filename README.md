@@ -1,6 +1,7 @@
 # Godot Engine Global Search
 
-![Imgur](https://imgur.com/adlDB4X)
+<p align="center" dir="auto">![demo](https://imgur.com/adlDB4X.gif)</p>
+
 
 A proof of concept Global Search Node with search-as-you-type functionality, powered by [Typesense](https://github.com/typesense/typesense).  
 This repository contains a showcase project based on the public Typesense OpenLibrary dataset that can be found 👉 [here](https://books-search.typesense.org/).  

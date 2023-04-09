@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://cg0cn1n4bmmmi"]
+
+[ext_resource type="Script" path="res://global_search/scn/global_search_container/global_search_container.gd" id="1_4ir83"]
+[ext_resource type="Shader" path="res://global_search/scn/global_search_container/global_search_container.gdshader" id="2_rwgdy"]
+[ext_resource type="PackedScene" uid="uid://dcgbyy5syx118" path="res://global_search/scn/search_bar_container/search_bar_container.tscn" id="3_ehvp1"]
+[ext_resource type="PackedScene" uid="uid://tnxkxeupegcw" path="res://global_search/scn/search_result_list_container/search_result_list_container.tscn" id="5_d3mp3"]
+[ext_resource type="PackedScene" uid="uid://pcv80xaehrtv" path="res://global_search/scn/widgets/stats/search_stats_widget.tscn" id="5_lgh2n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_peixy"]
+shader = ExtResource("2_rwgdy")
+shader_parameter/transparency = 0.2
+shader_parameter/amount = 0.5
+
+[node name="GlobalSearch" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_4ir83")
+
+[node name="Background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_peixy")
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="SearchBarContainer" parent="." instance=ExtResource("3_ehvp1")]
+layout_mode = 1
+anchor_left = 0.222222
+anchor_top = 0.197531
+anchor_right = 0.777444
+anchor_bottom = 0.197531
+metadata/_edit_use_anchors_ = true
+
+[node name="SearchResultList" parent="." instance=ExtResource("5_d3mp3")]
+layout_mode = 1
+anchor_left = 0.222
+anchor_top = 0.201
+anchor_right = 0.777333
+anchor_bottom = 0.358025
+offset_left = 0.255981
+offset_top = 101.752
+metadata/_edit_use_anchors_ = true
+
+[node name="SearchStatsWidget" parent="." instance=ExtResource("5_lgh2n")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.229
+anchor_top = 0.198
+anchor_right = 0.769
+anchor_bottom = 0.309
+offset_left = 0.191986
+offset_top = 71.696
+offset_right = 2.11194
+offset_bottom = 22.768
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="search_result_retrieved" from="SearchBarContainer" to="." method="_on_search_bar_container_search_result_retrieved"]
+[connection signal="search_text_changed" from="SearchBarContainer" to="." method="_on_search_bar_container_search_text_changed"]
+[connection signal="search_result_clicked" from="SearchResultList" to="." method="_on_search_result_list_search_result_clicked"]

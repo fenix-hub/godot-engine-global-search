@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://rnaae6hc48qt"]
+
+[ext_resource type="Script" path="res://global_search/scn/header_search_bar/header_search_bar_container.gd" id="1_m70jo"]
+[ext_resource type="PackedScene" uid="uid://dbqdvqg4pb33h" path="res://global_search/scn/header_search_bar/key_label.tscn" id="2_scmo4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l2eqt"]
+content_margin_left = 8.0
+content_margin_top = 0.0
+content_margin_right = 8.0
+content_margin_bottom = 0.0
+bg_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 20
+shadow_color = Color(0, 0, 0, 0.117647)
+anti_aliasing_size = 0.6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_upcpv"]
+content_margin_top = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8tfoq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lnnlx"]
+content_margin_left = 3.0
+content_margin_top = 8.0
+content_margin_right = 3.0
+content_margin_bottom = 8.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_yadw4"]
+font_color = Color(0.760784, 0.760784, 0.760784, 1)
+
+[node name="HeaderSearchBarContainer" type="PanelContainer" node_paths=PackedStringArray("shortcut_context")]
+custom_minimum_size = Vector2(288, 0)
+anchors_preset = -1
+anchor_right = 0.25
+offset_bottom = 42.0
+mouse_default_cursor_shape = 2
+shortcut_context = NodePath("")
+theme_override_styles/panel = SubResource("StyleBoxFlat_l2eqt")
+script = ExtResource("1_m70jo")
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="LensEmoji" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_upcpv")
+text = "🔎"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8tfoq")
+
+[node name="Type" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lnnlx")
+text = "Type"
+label_settings = SubResource("LabelSettings_yadw4")
+
+[node name="Character" parent="HBoxContainer" instance=ExtResource("2_scmo4")]
+layout_mode = 2
+
+[node name="OrClick" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lnnlx")
+text = "or click to search..."
+label_settings = SubResource("LabelSettings_yadw4")

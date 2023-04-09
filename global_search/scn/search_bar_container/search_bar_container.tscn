@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcgbyy5syx118"]
+
+[ext_resource type="Script" path="res://global_search/scn/search_bar_container/search_bar_container.gd" id="1_w76jj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgwwo"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.160784, 0.160784, 0.160784, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 20
+shadow_color = Color(0, 0, 0, 0.117647)
+shadow_size = 10
+anti_aliasing_size = 0.7
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bkp63"]
+content_margin_top = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_inq70"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+
+[node name="SearchBarContainer" type="PanelContainer"]
+anchors_preset = -1
+anchor_right = 0.333
+offset_right = 0.384003
+offset_bottom = 63.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fgwwo")
+script = ExtResource("1_w76jj")
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bkp63")
+text = "🔎"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_inq70")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_inq70")
+placeholder_text = "I'm looking for..."
+clear_button_enabled = true
+flat = true
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="text_changed" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

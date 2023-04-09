@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://pcv80xaehrtv"]
+
+[ext_resource type="Script" path="res://global_search/scn/widgets/stats/search_stats_widget.gd" id="1_3yh62"]
+
+[node name="SearchStatsWidget" type="RichTextLabel"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "lorem ipsum"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+script = ExtResource("1_3yh62")

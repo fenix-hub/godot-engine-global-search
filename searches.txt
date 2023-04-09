@@ -1,0 +1,19 @@
+ALGOLIA:
+
+@export var search_url: String = "https://B1G2GM9NG0-dsn.algolia.net/1/indexes/demo_ecommerce/query"
+@export var search_headers: Array[String] = [
+	"X-Algolia-Application-Id: B1G2GM9NG0",
+	"X-Algolia-API-Key: aadef574be1f9252bb48d4ea09b5cfe5"
+]
+@export var search_method: int = HTTPClient.METHOD_POST
+@export var search_body: Dictionary = {
+	searches = [
+	{
+		q = "query={{search_text}}&hitsPerPage=%s" % [10],
+		highlightPreTag = "[bgcolor=#%s]" % Color("006f7e").to_html(),
+		highlightPostTag = "[/bgcolor]",
+		attributesToSnippet = ["description:15"],
+		snippetEllipsisText = "[...]"
+	}
+	]
+}

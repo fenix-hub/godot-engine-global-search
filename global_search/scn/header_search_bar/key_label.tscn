@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbqdvqg4pb33h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i11ly"]
+content_margin_left = 5.0
+content_margin_top = 0.0
+content_margin_right = 5.0
+content_margin_bottom = 0.0
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_yadw4"]
+font_color = Color(0.760784, 0.760784, 0.760784, 1)
+
+[node name="Character" type="Label"]
+theme_override_styles/normal = SubResource("StyleBoxFlat_i11ly")
+text = "/"
+label_settings = SubResource("LabelSettings_yadw4")

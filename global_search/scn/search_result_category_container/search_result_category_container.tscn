@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://68dj78ashso4"]
+
+[ext_resource type="Script" path="res://global_search/scn/search_result_category_container/search_result_category_container.gd" id="1_mqr7l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ni4sh"]
+content_margin_top = 5.0
+
+[sub_resource type="FontVariation" id="FontVariation_l5lma"]
+variation_embolden = 0.4
+opentype_features = {
+1936928818: 1
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_t23rb"]
+font = SubResource("FontVariation_l5lma")
+font_size = 14
+font_color = Color(0.67451, 0.67451, 0.67451, 1)
+
+[node name="SearchResultCategory" type="PanelContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ni4sh")
+script = ExtResource("1_mqr7l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="CategoryName" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Category"
+label_settings = SubResource("LabelSettings_t23rb")
+vertical_alignment = 1
+
+[node name="Results" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5

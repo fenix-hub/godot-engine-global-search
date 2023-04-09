@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://4eu8xvkqewd5"]
+
+[ext_resource type="StyleBox" uid="uid://d0l1r8y30g6m" path="res://global_search/scn/search_result_container/styles/default.tres" id="1_u0q46"]
+[ext_resource type="Script" path="res://global_search/scn/search_result_container/search_result_container.gd" id="2_l38co"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d5sp5"]
+content_margin_top = 3.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ypnhg"]
+font_size = 24
+
+[sub_resource type="FontVariation" id="FontVariation_f41mt"]
+
+[sub_resource type="FontVariation" id="FontVariation_0xw6a"]
+variation_embolden = 0.5
+
+[node name="SearchResultComponent" type="PanelContainer"]
+offset_right = 192.0
+offset_bottom = 63.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("1_u0q46")
+script = ExtResource("2_l38co")
+metadata/_edit_use_anchors_ = true
+
+[node name="Box" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="IconImage" type="TextureRect" parent="Box"]
+visible = false
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 4
+expand_mode = 3
+stretch_mode = 5
+
+[node name="IconEmoji" type="Label" parent="Box"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d5sp5")
+text = "📦"
+label_settings = SubResource("LabelSettings_ypnhg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info" type="VBoxContainer" parent="Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Title" type="RichTextLabel" parent="Box/Info"]
+layout_mode = 2
+mouse_filter = 1
+bbcode_enabled = true
+text = "Lorem Ipsum"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="Subtitle" type="RichTextLabel" parent="Box/Info"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.505882, 0.505882, 0.505882, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_f41mt")
+theme_override_fonts/bold_font = SubResource("FontVariation_0xw6a")
+theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/bold_font_size = 14
+bbcode_enabled = true
+text = "Lorem Ipsum."
+fit_content = true
+scroll_active = false
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
